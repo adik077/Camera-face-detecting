@@ -1,12 +1,12 @@
-import cv2
+﻿import cv2
 
 classifier="face_cascade.xml"
-video=cv2.VideoCapture(0, cv2.CAP_DSHOW)        #cv2.CAP_DSHOW - nie wiadomo po co ale bez tego nie dziala
+video=cv2.VideoCapture(0, cv2.CAP_DSHOW)       
 cascade=cv2.CascadeClassifier(classifier)
 
 while True:
     ret,frame=video.read()
-    frame=cv2.flip(frame,1) #kamerka nie robi mirrora - nie zamienia stron prawej na lewą
+    frame=cv2.flip(frame,1) 
     gray=cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
     faces=cascade.detectMultiScale(image=gray,minNeighbors=5,minSize=(50,50),scaleFactor=1.1)
     for (x,y,w,h) in faces:
